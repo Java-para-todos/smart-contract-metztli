@@ -1,5 +1,5 @@
-//  import { PersistentUnorderedMap, context, PersistentMap, u128 } from "near-sdk-as";
-// @nearBindgen
+import { PersistentUnorderedMap, context, PersistentMap, u128 } from "near-sdk-as";
+ @nearBindgen
 export class Product{
     // Atributtes
     id: string;
@@ -7,7 +7,7 @@ export class Product{
     description: string;
     image: string;
     price: string;
-
+    owner:string;
     public static fromPayload(payload: Product): Product {
         const product = new Product(); //New Product
         //Load the values to the product
@@ -16,12 +16,12 @@ export class Product{
         product.description=payload.description;
         product.image=payload.image;
         product.price=payload.price;
-
+        product.owner = context.sender;
         //return the product
         return product;
     }
 }
-// @nearBindgen
+@nearBindgen
 export class Client { //Class Client
     //Attributtes
     user: string;
@@ -39,3 +39,5 @@ export class Client { //Class Client
 
 
 // export const productsStorage = new PersistentUnorderedMap<string, Product>("LISTED_PRODUCTS");
+
+// export const clientsStorage = new PersistentUnorderedMap<string, Client>("LISTED_CLIENTS");
