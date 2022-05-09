@@ -17,6 +17,16 @@ export function buyProduct(productId: string): void {
     productsStorage.set(product.id, product); 
 }
 
+//Method to add a product 
+// @Param producto: Is a reference of the product to add
+export function addProduct(product: Product): void {
+    let storedProduct = productsStorage.get(product.id); //Serch the product in the Map 
+    if (storedProduct !== null) { //If is different to NULL the product is ready
+        throw new Error(`El ID: ${product.id} ya existe en nuestro inventario`); //Message
+    } 
+    productsStorage.set(product.id, Product.fromPayload(product)); //Will add the Producto to the Map of products
+}
+
 
 // @Param ID: Is the ID of product to find
 export function getProduct(id: string): Product | null {
