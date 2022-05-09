@@ -44,3 +44,12 @@ export function getProduct(id: string): Product | null {
 export function getClient(id: string): Product | null {
     return clientsStorage.get(id);
 }
+
+//Métthod to add a Client
+export function addClient(client: Client): void {
+    let storedClient = clientsStorage.get(client.id); //Serch the client in the Map 
+    if (storedClient !== null) { //If is different to NULL the Clent is ready
+        throw new Error(`El ID: ${client.id} ya existe en nuestro inventario`); //Message
+    } 
+    productsStorage.set(client.id,Client.loadClient(client)); //Will add the Producto to the Map of products
+}
