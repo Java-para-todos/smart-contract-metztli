@@ -21,4 +21,21 @@ export class Product{
         return product;
     }
 }
+// @nearBindgen
+export class Client { //Class Client
+    //Attributtes
+    user: string;
+    address: string;
+
+    // Method to load the values
+    public  static loadClient(loadClient: Client): Client{
+        let client=new Client();
+        client.user=loadClient.user;
+        client.address=loadClient.address;
+        //Return a Object Client
+        return client;
+    }
+}
+
+
 // export const productsStorage = new PersistentUnorderedMap<string, Product>("LISTED_PRODUCTS");
