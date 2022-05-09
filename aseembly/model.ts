@@ -24,12 +24,14 @@ export class Product{
 @nearBindgen
 export class Client { //Class Client
     //Attributtes
+    id:string;
     user: string;
     address: string;
 
     // Method to load the values
     public  static loadClient(loadClient: Client): Client{
         let client=new Client();
+        client.id=loadClient.id;
         client.user=loadClient.user;
         client.address=loadClient.address;
         //Return a Object Client

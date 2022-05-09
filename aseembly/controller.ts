@@ -1,4 +1,5 @@
  import { Product, productsStorage } from './model';
+ import { Client, clientsStorage } from './model';
  import { context, ContractPromiseBatch } from "near-sdk-as";
 
 
@@ -27,8 +28,19 @@ export function addProduct(product: Product): void {
     productsStorage.set(product.id, Product.fromPayload(product)); //Will add the Producto to the Map of products
 }
 
+// Method to get all Products
+export function getAllProducts(): Array<Product> {
+    return productsStorage.values(); //Return his values- in the front we will inject the values
+}
 
 // @Param ID: Is the ID of product to find
 export function getProduct(id: string): Product | null {
     return productsStorage.get(id);
+}
+
+
+// METHOD CLIENTS
+// @Param ID: Is the ID of Client to find
+export function getClient(id: string): Product | null {
+    return clientsStorage.get(id);
 }
