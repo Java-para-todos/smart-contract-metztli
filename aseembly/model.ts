@@ -1,5 +1,5 @@
-// import { PersistentUnorderedMap, context, PersistentMap, u128 } from "near-sdk-as";
-
+//  import { PersistentUnorderedMap, context, PersistentMap, u128 } from "near-sdk-as";
+// @nearBindgen
 export class Product{
     // Atributtes
     id: string;
@@ -20,5 +20,5 @@ export class Product{
         //return the product
         return product;
     }
-
 }
+// export const productsStorage = new PersistentUnorderedMap<string, Product>("LISTED_PRODUCTS");
