@@ -1,7 +1,7 @@
 {
-	"name": "openbooks",
+	"name": "Metztli",
 	"version": "1.0.0",
-	"description": "",
+	"description": "Contrato inteligente",
 	"main": "index.js",
 	"scripts": {
 		"test": "asp",
